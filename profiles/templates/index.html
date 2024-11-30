@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!--Title-->{% block title %}Yogendra Prasad Portfolio{% endblock %}
+
+
+ <!--Header Section-->
+{% block facebook_url %}{{facebook_url}}{% endblock %}
+{% block twitter_url %}{{twitter_url}}{% endblock %}
+{% block google_url %}{{google_url}}{% endblock %}
+{% block instagram_url %}{{instagram_url}}{% endblock %}
+{% block github_url %}{{github_url}}{% endblock %}
+
+{% block name %}Yogendra Prasad{% endblock %}
+{% block discription %}Python Specialist | Developer{% endblock %}
+<!--End of Header Section-->
+
+
+<!--Navidation bar-->
+{% block home %}#home{% endblock %}
+{% block about %}#about{% endblock %}
+{% block resume %}#resume{% endblock %}
+                 
+{% block name1%}Yogendra Prasad{% endblock %}
+{% block discription1 %}Python Specialist | Developer{% endblock %}
+
+{% block portfolio %}#portfolio{% endblock %}
+{% block blog %}#blog{% endblock %}
+{% block contact %}#contact{% endblock %}
+<!--End of navigation bar-->
+
+
+<!--Who am I ?-->
+{% block who_am_i_title %}A Web Designer / Developer Located In Our Lovely Earth{% endblock %}
+{% block who_am_i_discription %}Lorem ipsum dolor sit amet, consectetur adipisicing elit.sit amet, Qui deserunt consequatur fugit repellendusillo voluptas?{% endblock %}
+<!--End of Who am I ?-->
+
+
+<!--Personal Info-->
+{% block birthday %}11/07/2005{% endblock %}                    
+{% block phone %}+91 6391348273{% endblock %}
+{% block email %}pryogendra95449@gmail.com{% endblock %}
+{% block address %}Mumbai,Maharastra,India{% endblock %}
+
+{% block facebook_url_1 %}{{facebook_url}}{% endblock %}
+{% block twitter_url_1 %}{{twitter_url}}{% endblock %}
+{% block google_url_1 %}{{google_url}}{% endblock %}
+{% block instagram_url_1 %}{{instagram_url}}{% endblock %}
+{% block github_url_1 %}{{github_url}}{% endblock %}
+<!--End of Personal Info-->
+
+
+<!-- My Expertise -->
+{% block my_expertise %}
+{% for data in expertise %}
+<div class="row">
+    <div class="col-1 text-danger pt-1"><i class=" ti-{{data.1}} icon-lg"></i></div> <!--icon-->
+    <div class="col-10 ml-auto mr-3">
+        <h6>{{data.0}}</h6> <!--heading-->
+        <p class="subtitle">{{data.2}}</p> <!--Discription-->
+        <hr>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+<!--End of MY Expertise-->
+
+
+<!--Resume Section-->
+{% block resume_expertise %} <!--Expertise-->
+{% for data in resume_expertise %} 
+    <h6 class="title text-danger">{{data.0}} - {{data.1}}</h6>
+    <P>{{data.2}}</P>
+    <P class="subtitle">{{data.3}}</P>
+    <hr>
+{% endfor %}
+{% endblock %}
+
+{% block resume_education %} <!--Education-->
+{% for data in resume_education %}
+    <h6 class="title text-danger">{{data.1}} - {{data.1}}</h6>
+    <P>{{data.2}}</P>
+    <P class="subtitle">{{data.3}}</P>
+    <hr>
+{% endfor %}
+{% endblock %}
+
+{% block resume_skills %} <!--Skills-->
+{% for data in resume_skills %}
+    <h6>{{data.1}}</h6>
+    <div class="progress mb-3">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <hr>
+{% endfor %}
+{% endblock %}
+
+{% block resume_languages %} <!--Language-->
+{% for data in resume_languages %}
+    <h6>{{data.1}}</h6>
+    <div class="progress mb-3">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <hr>
+{% endfor %}
+
+{% endblock %}
+<!--End of Resume Section-->
+
+
+<!--Project Section-->
+    <!--Go to the Base.html-->
+<!--End of Project Section-->
+
+
+<!--Services Section-->
+{% block services_section %}
+{% for data in services %}
+    <div class="col-md-4 col-sm-6">
+        <div class="card mb-5">
+        <div class="card-header has-icon">
+                <i class="ti-{{data.0}} text-danger" aria-hidden="true"></i>
+            </div>
+            <div class="card-body px-4 py-3">
+                <h5 class="mb-3 card-title text-dark">{{data.1}}</h5>
+                <P class="subtitle">{{data.2}}</P>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
+<!--End of Services Section-->
+
+
+<!--Hiring Section-->
+{% block position %}Developer{% endblock %}
+<!--End of HiringSection-->
+
+
+<!-- Portfolio Section -->
+{% block new_url %}#{% endblock %}
+{% block advertising_url %}#{% endblock %}
+{% block branding_url %}#{% endblock %}
+{% block web_url %}#{% endblock %}
+
+{% block portfolio_img %}
+{% for data in images %}
+    <div class="col-md-6 col-lg-4 {{data.0}}">
+        <div class="portfolio-item">
+            <img src="{% static 'images/{{data.1}}' %}" class="img-fluid" alt="">
+            <div class="content-holder">
+                <a class="img-popup" href="{% static 'images/{{data.1}}' %}"></a>
+                <div class="text-holder">
+                    <h6 class="title">{{data.2}}</h6>
+                    <p class="subtitle">{{data.3}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
+<!-- End of portfolio section -->
+
+
+<!--News Section-->
+{% block news_section %}
+{% for data in news %}
+    <div class="blog-card">
+        <div class="img-holder">
+            <img src="{% static 'images/{{data.0}}' %}" alt="">
+        </div>
+        <div class="content-holder">
+            <h6 class="title">{{data.3}}</h6>
+
+            <p class="post-details">
+                <a href="{{data.1}}/">By: {{data.1}}</a>
+                <a href="#"><i class="ti-heart text-danger"></i> {{data.4}}</a>
+                <a href="#"><i class="ti-comment"></i> {{data.5}}</a>
+            </p>
+
+            <p>{{data.6}}</p>
+
+            <a href="{{data.2}}" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
+<!--End of News Section-->
+
+
+<!--Contact Section-->
+{% block phone_1 %}+91 6391348273{% endblock %}
+{% block email_1 %}pryogendra95449@gmail.com{% endblock %}
+{% block address_1 %}Mumbai,Maharastra,India{% endblock %}
+
+{% block facebook_url_3 %}{{facebook_url}}{% endblock %}
+{% block twitter_url_3 %}{{twitter_url}}{% endblock %}
+{% block google_url_3 %}{{google_url}}{% endblock %}
+{% block instagram_url_3 %}{{instagram_url}}{% endblock %}
+{% block github_url_3 %}{{github_url}}{% endblock %}
+<!--End of Contact Section-->
+
+
+<!--Creater-->
+{% block creater_link %}#{% endblock %}
+<!--End of Creater-->
+
+
+<!--Map link-->
+{% block map %}#{% endblock%}
+<!--End of map link-->
